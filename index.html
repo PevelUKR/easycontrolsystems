@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Easy Control Systems — Русская версия</title>
+  <title>Easy Control Systems</title>
+  <link rel="icon" type="image/png" href="favicon-ecs-2.png" />
   <style>
     * { box-sizing: border-box; }
 
@@ -33,39 +34,8 @@
       color: #0b4ea2;
     }
 
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    .lang-switch {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      border-radius: 999px;
-      padding: 6px;
-    }
-
-    .lang-switch a {
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 700;
-      padding: 8px 14px;
-      border-radius: 999px;
-      color: #0b4ea2;
-    }
-
-    .lang-switch a.active {
-      background: #0b4ea2;
-      color: white;
-    }
-
     nav a {
-      margin-left: 20px;
+      margin-left: 24px;
       text-decoration: none;
       color: #1e293b;
       font-size: 15px;
@@ -172,6 +142,12 @@
       margin-bottom: 36px;
     }
 
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -191,6 +167,60 @@
       margin-bottom: 10px;
       font-size: 22px;
       color: #0b4ea2;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 16px;
+      align-items: start;
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+      border: 1px solid #e5e7eb;
+    }
+
+    .icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: #dbeafe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+    }
+
+    .pilot {
+      background: #e0f2fe;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 26px;
+    }
+
+    .step {
+      background: white;
+      border-radius: 18px;
+      padding: 22px;
+      border: 1px solid #bae6fd;
+    }
+
+    .step-number {
+      display: inline-block;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #0b4ea2;
+      color: white;
+      text-align: center;
+      line-height: 34px;
+      font-weight: 700;
+      margin-bottom: 14px;
     }
 
     .form-wrap {
@@ -248,10 +278,34 @@
       margin-top: 14px;
     }
 
+    .faq-item {
+      background: white;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      border: 1px solid #e5e7eb;
+    }
+
+    .faq-item h3 {
+      margin-top: 0;
+      font-size: 19px;
+    }
+
     footer {
       background: #0f172a;
       color: #cbd5e1;
       padding: 40px;
+    }
+
+    footer h3 {
+      color: white;
+      margin-top: 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
 
     .copyright {
@@ -263,12 +317,16 @@
     }
 
     @media (max-width: 900px) {
-      header,
-      .header-right,
       .hero-grid,
-      .form-wrap {
+      .two-col,
+      .form-wrap,
+      .footer-grid {
         grid-template-columns: 1fr;
+      }
+
+      header {
         flex-direction: column;
+        gap: 14px;
         align-items: flex-start;
       }
 
@@ -276,25 +334,34 @@
         margin: 0 16px 0 0;
       }
 
-      h1 { font-size: 40px; }
-      h2 { font-size: 30px; }
-      .hero p { font-size: 18px; }
+      h1 {
+        font-size: 40px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="logo">Easy Control Systems</div>
-
-    <div class="header-right">
-      <div class="lang-switch">
-        <a href="index.html">EN</a>
-        <a href="ru.html" class="active">RU</a>
+    <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
+      <div style="display:flex; gap:8px; background:#eff6ff; border:1px solid #bfdbfe; padding:6px; border-radius:999px;">
+        <a href="index.html" style="text-decoration:none; padding:8px 14px; border-radius:999px; color:#0b4ea2; font-weight:700; font-size:14px;">EN</a>
+        <a href="ru.html" style="text-decoration:none; padding:8px 14px; border-radius:999px; background:#0b4ea2; color:#fff; font-weight:700; font-size:14px;">RU</a>
       </div>
-
       <nav>
         <a href="#services">Услуги</a>
+        <a href="#monitoring">Мониторинг</a>
+        <a href="#pilot">Пилотный проект</a>
         <a href="#contact">Контакты</a>
+        <a href="#faq">FAQ</a>
       </nav>
     </div>
   </header>
@@ -303,47 +370,152 @@
     <div class="container hero-grid">
       <div>
         <div class="eyebrow">Автоматизация для ферм, складов, мастерских, насосов и зданий</div>
-        <h1>Ваш бизнес работает, даже когда вы за ним не следите.</h1>
+        <h1>Ваш бизнес работает даже тогда, когда вы за ним не следите.</h1>
         <p>Получайте уведомления на телефон до того, как маленькая проблема превратится в дорогую аварию.</p>
         <div class="buttons">
           <a class="btn btn-primary" href="#contact">Отправить заявку</a>
           <a class="btn btn-secondary" href="#services">Посмотреть услуги</a>
         </div>
       </div>
-
       <div class="hero-card">
-        <h3>Простая автоматизация для малого бизнеса</h3>
+        <h3>Простая и понятная автоматизация для малого бизнеса</h3>
         <ul>
           <li>Контроль оборудования 24/7</li>
-          <li>Оповещения по телефону и email</li>
-          <li>Надёжные практичные системы</li>
+          <li>СМС и уведомления на телефон</li>
+          <li>Надежные рабочие системы без лишней сложности</li>
           <li>Понятная документация</li>
         </ul>
       </div>
     </div>
   </section>
 
+  <section>
+    <div class="container">
+      <h2>Что это дает вашему бизнесу</h2>
+      <p class="section-sub">Easy Control Systems помогает перестать постоянно бегать и проверять оборудование. Если началась протечка, морозильник прогрелся, насос перегружается или кто-то открыл дверь ночью — вы узнаете об этом сразу.</p>
+      <div class="two-col">
+        <div class="card">
+          <h3>Что я делаю</h3>
+          <p>Я собираю простые и надежные системы мониторинга и управления для малого бизнеса. Фермы, автомастерские, склады, насосные станции, теплицы, небольшие отели и другие объекты, где одна пропущенная проблема быстро превращается в потерю денег.</p>
+        </div>
+        <div class="card">
+          <h3>Чем это отличается</h3>
+          <p>Я не продаю переусложненные технологии. Я подключаю реальное оборудование, делаю систему понятной и нормально документирую её, чтобы другой инженер позже мог быстро разобраться.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="monitoring">
+    <div class="container">
+      <h2>Узнайте, что насос умирает, до того как он умрет</h2>
+      <p class="section-sub">Иногда одного предотвращенного аварийного ремонта достаточно, чтобы окупить всю систему.</p>
+      <div class="feature">
+        <div class="icon">🔌</div>
+        <div>
+          <h3>Контроль тока помогает поймать проблему заранее</h3>
+          <p>Я добавляю контроль потребляемого тока для насосов, моторов, компрессоров, холодильного оборудования, HVAC, полива, пылеудаления и другой техники с электродвигателем.</p>
+          <ul>
+            <li>Устанавливаем простой датчик тока</li>
+            <li>Система запоминает нормальное потребление</li>
+            <li>Если ток вырос на 15–20%, вы получаете предупреждение</li>
+            <li>Вы планируете обслуживание до серьезной поломки</li>
+          </ul>
+          <p><strong>Пример:</strong> «Скважинный насос №2 — повышенный ток. Запланируйте обслуживание».</p>
+          <p>Это лучше, чем аварийный вызов ночью или в выходной по тройному тарифу.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="services">
     <div class="container">
-      <h2>Что я могу сделать</h2>
-      <p class="section-sub">Практичные решения для реального оборудования и реального бизнеса.</p>
-
+      <h2>Что я могу сделать для вашего объекта</h2>
+      <p class="section-sub">Практичные решения для оборудования, связи, контроля и нормальной передачи системы в будущем.</p>
       <div class="cards">
         <div class="card">
-          <h3>Удалённый мониторинг</h3>
-          <p>Насосы, холодильники, двери, освещение, энергопотребление, аварии и другое важное оборудование.</p>
+          <h3>Подключение старого оборудования</h3>
+          <p>Выключатели, реле, сухие контакты, насосы, свет, двери и оборудование без «умных» функций.</p>
         </div>
         <div class="card">
-          <h3>SCADA на телефоне</h3>
-          <p>Текущий статус, простые графики, история и уведомления из любой точки.</p>
+          <h3>Сеть там, где её нет</h3>
+          <p>Проводная сеть, беспроводные каналы, оптика, Starlink, 433 кГц, 2.4 ГГц и восстановление поврежденных участков.</p>
         </div>
         <div class="card">
-          <h3>Сеть и связь</h3>
-          <p>Проводная сеть, беспроводные каналы, оптика, Starlink и удалённые объекты со слабой связью.</p>
+          <h3>Простая SCADA на телефоне</h3>
+          <p>Текущий статус, графики, история, аварии и при необходимости облачный архив.</p>
         </div>
         <div class="card">
-          <h3>Документация</h3>
-          <p>Понятные схемы и описание логики, чтобы другой инженер потом быстро разобрался.</p>
+          <h3>Контроль доступа и камеры</h3>
+          <p>Двери, видеонаблюдение, сигнализация и базовая защита сети.</p>
+        </div>
+        <div class="card">
+          <h3>Нормальная документация</h3>
+          <p>Понятные схемы, wiring, описание логики и структура, в которой другой инженер быстро разберется.</p>
+        </div>
+        <div class="card">
+          <h3>Оповещения на телефон</h3>
+          <p>СМС, email или другие уведомления, чтобы вы знали о проблеме, не находясь рядом с объектом.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Для кого это подходит</h2>
+      <p class="section-sub">Хороший вариант для объектов, где пропущенная проблема приводит к простою, порче товара, потопу или постоянному стрессу.</p>
+      <div class="cards">
+        <div class="card"><h3>Фермы и теплицы</h3><p>Температура, полив, освещение, насосы, вентиляция.</p></div>
+        <div class="card"><h3>Склады</h3><p>Протечки, контроль электроэнергии, морозильники, пожарные сигналы.</p></div>
+        <div class="card"><h3>Автомастерские и магазины</h3><p>Отопление, доступ, охрана и простая автоматизация здания.</p></div>
+        <div class="card"><h3>Насосные станции и небольшие отели</h3><p>Удаленный статус, тревоги, тренды и плановое обслуживание.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pilot" class="pilot">
+    <div class="container">
+      <h2>Пилотный проект: вы платите только за железо</h2>
+      <p class="section-sub">Сейчас я ищу 2–3 пилотных клиента для портфолио и отзывов.</p>
+      <div class="two-col">
+        <div class="card">
+          <h3>Что оплачиваете вы</h3>
+          <p>Только оборудование: контроллер, датчики, кабели и другие комплектующие. Я даю понятный список покупок без наценки.</p>
+        </div>
+        <div class="card">
+          <h3>Что делаю я</h3>
+          <p>Монтаж, подключение, настройку, программирование, документацию и объяснение, как всё работает.</p>
+        </div>
+      </div>
+      <p style="margin-top:22px; font-size:18px; color:#0f172a;">Без подвоха. Мне нужны реальные кейсы для портфолио. Вы получаете рабочую систему автоматизации по цене оборудования.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Как это работает</h2>
+      <p class="section-sub">Вам не нужно разбираться в SCADA, контакторах и реле, чтобы начать.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Расскажите о проблеме</h3>
+          <p>Опишите объект простыми словами. Даже «насос на скважине ведет себя странно» — уже достаточно.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Я предложу решение</h3>
+          <p>Задам 2–3 простых вопроса и пришлю набросок решения плюс список деталей. Для маленьких задач это обычно около $200–$800.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Вы покупаете детали</h3>
+          <p>Без скрытых наценок. Вы точно знаете, что ставится и зачем.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Я устанавливаю и запускаю</h3>
+          <p>После этого вы получаете уведомления, видимость и спокойствие.</p>
         </div>
       </div>
     </div>
@@ -351,41 +523,97 @@
 
   <section id="contact">
     <div class="container">
-      <h2>Связаться со мной</h2>
-      <p class="section-sub">Напишите, что у вас ломается или вызывает тревогу.</p>
-
+      <h2>Отправьте заявку — ни к чему не обязывает</h2>
+      <p class="section-sub">Можно написать простыми словами. Вам не нужны технические термины. Просто расскажите, что у вас ломается или беспокоит.</p>
       <div class="form-wrap">
         <form action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST">
           <label for="name">Имя</label>
-          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <input id="name" type="text" name="name" placeholder="Ваше имя" />
 
           <label for="phone">Телефон</label>
-          <input id="phone" name="phone" type="text" placeholder="Звонок или сообщение">
+          <input id="phone" type="text" name="phone" placeholder="Звонок, SMS, WhatsApp" />
 
           <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="your@email.com" required>
+          <input id="email" type="email" name="email" placeholder="your@email.com" />
 
-          <label for="details">С чем нужна помощь?</label>
-          <textarea id="details" name="message" placeholder="Например: Насос на скважине странно работает, хочу получать уведомления до поломки." required></textarea>
+          <label for="details">Что у вас есть и что вас беспокоит</label>
+          <textarea id="details" name="message" placeholder="Например: небольшая ферма, один насос, два морозильника, интернет нестабильный, боюсь пропустить аварию."></textarea>
 
-          <button class="submit" type="submit">ОТПРАВИТЬ</button>
-          <div class="small-note">Без спама. Без давления. Я отвечаю на каждое сообщение.</div>
+          <label for="time">Когда удобно связаться</label>
+          <select id="time" name="best_time">
+            <option>Утром</option>
+            <option>Днем</option>
+            <option>Вечером</option>
+            <option>Можно писать в любое время</option>
+          </select>
+
+          <button class="submit" type="submit">ОТПРАВИТЬ ЗАЯВКУ</button>
+          <div class="small-note">Без спама. Без давления. Я не продаю ваши данные и отвечаю на каждое сообщение.</div>
         </form>
 
-        <div class="card">
-          <h3>Easy Control Systems</h3>
-          <p>Email: info@easycontrolsystems.com</p>
-          <p>Удалённый мониторинг, SCADA, уведомления, связь и практичная автоматизация для малого бизнеса.</p>
+        <div>
+          <div class="card" style="margin-bottom:20px;">
+            <h3>Без лишней технички и без давления</h3>
+            <p>Просто человек, который умеет заставлять устройства разговаривать друг с другом. Нажмите кнопку и расскажите, что у вас ломается или вызывает тревогу. Остальное я беру на себя.</p>
+          </div>
+          <div class="card">
+            <h3>Примеры хороших первых сообщений</h3>
+            <p>«Морозильник иногда отключается, хочу получать предупреждение раньше, чем пропадет товар».</p>
+            <p>«Есть насос на удаленном объекте, хочу знать, когда он начинает тянуть слишком большой ток».</p>
+            <p>«Нужны тревоги по двери и камеры для небольшого склада».</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <h2>FAQ</h2>
+      <div class="cards">
+        <div class="faq-item">
+          <h3>Что будет, если пропадет интернет?</h3>
+          <p>Система продолжит работать локально и сохранять данные. Когда связь вернется, уведомления и история снова синхронизируются.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Нужен ли специальный телефон?</h3>
+          <p>Нет. Подойдет любой смартфон. Для простых тревог можно использовать и обычные SMS.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Будет ли ежемесячная подписка?</h3>
+          <p>Обязательной подписки нет. Система ваша. При желании можно добавить облачный архив.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Я не знаю, что такое SCADA или контактор.</h3>
+          <p>И не нужно. Я перевожу технические вещи на понятный язык.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Сколько обычно стоят детали для пилотного проекта?</h3>
+          <p>Для небольшого проекта железо обычно выходит около $300–$800, в зависимости от датчиков, связи и условий на объекте.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Сможет ли другой инженер обслуживать систему потом?</h3>
+          <p>Да. В этом одна из главных идей. Я оставляю нормальную документацию, а не загадочные провода без пояснений.</p>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="container">
-      <div>Easy Control Systems</div>
-      <div class="copyright">© 2026 Easy Control Systems. Все права защищены.</div>
+    <div class="container footer-grid">
+      <div>
+        <h3>Easy Control Systems</h3>
+        <p>Простая автоматизация и мониторинг для реального бизнеса.</p>
+        <p>Фермы, склады, мастерские, насосные станции и удаленные объекты.</p>
+      </div>
+      <div>
+        <h3>Контакты</h3>
+        <p>Phone / Text / WhatsApp / Telegram: +1 (929) 334-7070</p>
+        <p>Email: info@easycontrolsystems.com</p>
+        <p>Работаю в Калифорнии и удаленно по США</p>
+      </div>
     </div>
+    <div class="container copyright">© 2026 Easy Control Systems. Все права защищены.</div>
   </footer>
 </body>
 </html>
