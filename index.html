@@ -1,15 +1,615 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Easy Control Systems</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      height: 100vh;
-      background: url('https://i.ibb.co/WN02pH1R/background.jpg') no-repeat center center/cover;
+      font-family: Arial, sans-serif;
+      background: #f6f8fb;
+      color: #0f172a;
+      line-height: 1.6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 40px;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0b4ea2;
+    }
+
+    nav a {
+      margin-left: 24px;
+      text-decoration: none;
+      color: #1e293b;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0b4ea2 0%, #0f172a 100%);
+      color: white;
+      padding: 90px 40px 80px;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 52px;
+      line-height: 1.1;
+      margin: 0 0 18px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #dbeafe;
+      margin: 0 0 28px;
+      max-width: 720px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #082f49;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.28);
+      color: white;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 24px;
+      padding: 28px;
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-card h3 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .hero-card ul {
+      margin: 0;
+      padding-left: 20px;
+      color: #e2e8f0;
+    }
+
+    section {
+      padding: 72px 40px;
+    }
+
+    h2 {
+      font-size: 38px;
+      margin: 0 0 14px;
+      color: #0f172a;
+    }
+
+    .section-sub {
+      font-size: 18px;
+      color: #475569;
+      max-width: 800px;
+      margin-bottom: 36px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+      border: 1px solid #e5e7eb;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 22px;
+      color: #0b4ea2;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 16px;
+      align-items: start;
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+      border: 1px solid #e5e7eb;
+    }
+
+    .icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: #dbeafe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+    }
+
+    .pilot {
+      background: #e0f2fe;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 26px;
+    }
+
+    .step {
+      background: white;
+      border-radius: 18px;
+      padding: 22px;
+      border: 1px solid #bae6fd;
+    }
+
+    .step-number {
+      display: inline-block;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #0b4ea2;
+      color: white;
+      text-align: center;
+      line-height: 34px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .form-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    form {
+      background: white;
+      padding: 28px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+      border: 1px solid #e5e7eb;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+      margin-top: 14px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid #cbd5e1;
+      font-size: 15px;
+      font-family: inherit;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .submit {
+      margin-top: 18px;
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 14px;
+      background: #0b4ea2;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .small-note {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 14px;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      border: 1px solid #e5e7eb;
+    }
+
+    .faq-item h3 {
+      margin-top: 0;
+      font-size: 19px;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 40px;
+    }
+
+    footer h3 {
+      color: white;
+      margin-top: 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .copyright {
+      margin-top: 26px;
+      font-size: 14px;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .two-col,
+      .form-wrap,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        flex-direction: column;
+        gap: 14px;
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin: 0 16px 0 0;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 <body>
+  <header>
+    <div class="logo">Easy Control Systems</div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#monitoring">Monitoring</a>
+      <a href="#pilot">Pilot Project</a>
+      <a href="#contact">Contact</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Automation for farms, warehouses, shops, pumps, and buildings</div>
+        <h1>Your business runs even when you're not watching. Finally.</h1>
+        <p>Stop running around checking pumps, freezers, lights, and doors. Get alerts on your phone before a small problem becomes an expensive disaster.</p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="#contact">Send me a draft</a>
+          <a class="btn btn-secondary" href="#services">See what I do</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>Common sense automation for small business</h3>
+        <ul>
+          <li>Simple rugged systems that watch equipment 24/7</li>
+          <li>Text or app alerts when something goes wrong</li>
+          <li>No tech talk, no fluff, real documentation</li>
+          <li>Built for real places, not for showroom demos</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>What this means for your business</h2>
+      <p class="section-sub">Easy Control Systems helps owners stop babysitting equipment. If a leak starts, a freezer warms up, a pump overloads, or someone opens a door at night, you know about it right away.</p>
+      <div class="two-col">
+        <div class="card">
+          <h3>What I build</h3>
+          <p>I build simple, rugged monitoring and control systems for small business. Farms, auto shops, warehouses, pump stations, greenhouses, small hotels, and other places where one missed problem can turn into lost money fast.</p>
+        </div>
+        <div class="card">
+          <h3>What makes it different</h3>
+          <p>I do not sell overcomplicated tech. I connect real equipment, make it understandable, and document it properly so another engineer can figure it out later without guessing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="monitoring">
+    <div class="container">
+      <h2>Know when your pump is dying before it dies</h2>
+      <p class="section-sub">One avoided emergency repair can pay for the whole system.</p>
+      <div class="feature">
+        <div class="icon">🔌</div>
+        <div>
+          <h3>Power monitoring that catches trouble early</h3>
+          <p>I add current monitoring to pumps, motors, compressors, refrigeration, HVAC, irrigation, dust collectors, and other equipment with a motor.</p>
+          <ul>
+            <li>We install a simple current sensor</li>
+            <li>The system learns normal power use</li>
+            <li>If amp draw jumps 15-20%, you get an alert</li>
+            <li>You schedule service before the breakdown hits</li>
+          </ul>
+          <p><strong>Example:</strong> “Well pump #2 — high amp draw. Schedule maintenance.”</p>
+          <p>That means Tuesday repair rates instead of Saturday night emergency prices.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2>What I can do for your site</h2>
+      <p class="section-sub">Practical solutions for equipment, communications, visibility, and handoff.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Connect old equipment</h3>
+          <p>Switches, relays, dry contacts, pumps, lights, doors, and equipment with no “smart” features.</p>
+        </div>
+        <div class="card">
+          <h3>Build network where there is none</h3>
+          <p>Wired network, wireless links, fiber, Starlink, 433 kHz, 2.4 GHz, and damaged section recovery.</p>
+        </div>
+        <div class="card">
+          <h3>Simple SCADA on your phone</h3>
+          <p>Live status, graphs, history, alerts, and optional cloud archive from anywhere.</p>
+        </div>
+        <div class="card">
+          <h3>Access control and cameras</h3>
+          <p>Doors, video, alarms, and basic firewall protection for small sites.</p>
+        </div>
+        <div class="card">
+          <h3>Real documentation</h3>
+          <p>Clear diagrams, wiring, logic notes, and enough structure so another engineer can understand it fast.</p>
+        </div>
+        <div class="card">
+          <h3>Phone-first alerts</h3>
+          <p>SMS, app alerts, or messaging so you know what happened without standing next to the equipment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Who this is for</h2>
+      <p class="section-sub">Good fit for places where a missed issue turns into downtime, spoilage, water damage, or stress.</p>
+      <div class="cards">
+        <div class="card"><h3>Farms & greenhouses</h3><p>Temperature, irrigation, lighting, pumps, ventilation.</p></div>
+        <div class="card"><h3>Warehouses</h3><p>Leaks, electrical monitoring, freezer alarms, fire-related signals.</p></div>
+        <div class="card"><h3>Auto shops & stores</h3><p>Heating, access, security, simple building automation.</p></div>
+        <div class="card"><h3>Pump stations & small hotels</h3><p>Remote status, alerts, trends, and service planning.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pilot" class="pilot">
+    <div class="container">
+      <h2>Pilot project: hardware only</h2>
+      <p class="section-sub">I am looking for 2-3 pilot clients for portfolio examples and testimonials.</p>
+      <div class="two-col">
+        <div class="card">
+          <h3>You pay for</h3>
+          <p>Equipment only: controller, sensors, cables, and related parts. I give you a clear shopping list with no markup.</p>
+        </div>
+        <div class="card">
+          <h3>I do for free</h3>
+          <p>Installation, wiring, setup, programming, documentation, and showing you how it works.</p>
+        </div>
+      </div>
+      <p style="margin-top:22px; font-size:18px; color:#0f172a;">No catch. I need real examples for my portfolio. You get a working automation system for the cost of hardware.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>How it works</h2>
+      <p class="section-sub">You do not need to know anything about SCADA, relays, or contactors to get started.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Tell me the problem</h3>
+          <p>Just describe your place in plain English. Even “my well pump is acting weird” is enough.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>I sketch the solution</h3>
+          <p>I ask 2-3 simple questions and send a rough plan plus a parts list, usually around $200-$800 for small jobs.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>You buy the parts</h3>
+          <p>No hidden markup. You know exactly what is being installed and why.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>I install and launch</h3>
+          <p>You start getting alerts, visibility, and peace of mind.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Send me a draft — no obligation</h2>
+      <p class="section-sub">Bad sentences are fine. You do not need technical words. Just tell me what keeps breaking or worrying you.</p>
+      <div class="form-wrap">
+        <form>
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name" />
+
+          <label for="phone">Phone (text or call)</label>
+          <input id="phone" type="text" placeholder="WhatsApp / iMessage / SMS" />
+
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="your@email.com" />
+
+          <label for="details">Tell me what you have and what worries you</label>
+          <textarea id="details" placeholder="Example: Small farm, one pump, two freezers, internet is unstable, worried about outages."></textarea>
+
+          <label for="time">Best time to reach you</label>
+          <select id="time">
+            <option>Morning</option>
+            <option>Afternoon</option>
+            <option>Evening</option>
+            <option>Just text anytime</option>
+          </select>
+
+          <button class="submit" type="button">SEND ME A DRAFT — NO OBLIGATION</button>
+          <div class="small-note">I will not spam you. I will not sell your info. You will not look stupid. I answer every message.</div>
+        </form>
+
+        <div>
+          <div class="card" style="margin-bottom:20px;">
+            <h3>No tech talk. No pressure.</h3>
+            <p>Just a guy who knows how to make things talk to each other. Hit the button and tell me what is breaking or worrying you. I will handle the rest.</p>
+          </div>
+          <div class="card">
+            <h3>Good first messages</h3>
+            <p>“My freezer keeps tripping and I want an alert before product warms up.”</p>
+            <p>“We have a well pump at a remote site and I want to know when it starts drawing too much current.”</p>
+            <p>“I need door alerts and cameras for a small warehouse.”</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <h2>FAQ</h2>
+      <div class="cards">
+        <div class="faq-item">
+          <h3>What if the internet goes down?</h3>
+          <p>The system keeps working locally and stores data. When internet comes back, alerts and history sync again.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do I need a special phone?</h3>
+          <p>No. Any smartphone works. SMS is also possible for simple alerts.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Will there be a monthly subscription?</h3>
+          <p>No required subscription. You own the system. Optional cloud archive can be added if needed.</p>
+        </div>
+        <div class="faq-item">
+          <h3>I do not know what SCADA or a contactor is.</h3>
+          <p>You do not need to. I translate the technical part into normal language.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How much do pilot project parts usually cost?</h3>
+          <p>Typical small project hardware is around $300-$800, depending on sensors, communications, and site conditions.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can another engineer maintain it later?</h3>
+          <p>Yes. That is one of the main points. I provide proper documentation, not mystery wiring.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h3>Easy Control Systems</h3>
+        <p>Simple automation and monitoring for real businesses.</p>
+        <p>Farms, warehouses, shops, pump stations, and remote facilities.</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>Phone / Text / WhatsApp / Telegram: +1 (929) 334-7070</p>
+        <p>Email: info@easycontrolsystem.com</p>
+        <p>Serving: California and remote support across the US</p>
+      </div>
+    </div>
+    <div class="container copyright">© 2026 Easy Control Systems. All rights reserved.</div>
+  </footer>
 </body>
 </html>
