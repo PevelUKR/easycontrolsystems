@@ -2,7 +2,8 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>В разработке</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Незнакомка</title>
     <style>
         * {
             margin: 0;
@@ -11,60 +12,30 @@
         }
 
         body {
-            background: #1a1a1a;  /* тёмный фон как в музее */
+            background: #0a0a0a;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
             align-items: center;
-            font-family: system-ui, 'Segoe UI', sans-serif;
-        }
-
-        /* контейнер с одной картинкой */
-        .image-container {
-            display: flex;
             justify-content: center;
-            align-items: center;
-            width: 100%;
-            padding: 20px;
         }
 
         img {
-            max-width: 95vw;
-            max-height: 95vh;
-            width: auto;
-            height: auto;
+            width: 100%;
+            height: 100vh;
             object-fit: contain;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            transition: all 0.2s ease;
+            display: block;
         }
 
-        /* опционально — маленькая подпись в углу, но её почти не видно */
-        .corner-note {
-            position: fixed;
-            bottom: 12px;
-            right: 16px;
-            color: rgba(255,255,255,0.4);
-            font-size: 12px;
-            background: rgba(0,0,0,0.3);
-            padding: 4px 10px;
-            border-radius: 20px;
-            pointer-events: none;
-            font-family: monospace;
+        /* на совсем маленьких экранах чуть отступы по бокам, если нужно */
+        @media (max-width: 768px) {
+            img {
+                object-fit: contain;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="image-container">
-        <!-- ПРЯМАЯ ССЫЛКА НА НЕЗНАКОМКУ КРАМСКОГО (качественное изображение) -->
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Kramskoy_Stranger.jpg/1200px-Kramskoy_Stranger.jpg" 
-             alt="Незнакомка Крамского"
-             title="Сайт в разработке">
-    </div>
-
-    <!-- совсем незаметная метка, чтобы помнить, что это за место -->
-    <div class="corner-note">
-        телемеханика / диспетчеризация
-    </div>
+    <!-- ВСТАВЬТЕ СЮДА ВАШУ ПРЯМУЮ ССЫЛКУ С GITHUB -->
+    <img src="https://ваш-username.github.io/ваш-репозиторий/Rest.jpeg">
 </body>
 </html>
