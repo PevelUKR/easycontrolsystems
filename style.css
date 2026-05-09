@@ -29,7 +29,38 @@ body {
 }
 
 /* ============================================
-   ШАПКА (HEADER)
+   ОСНОВНАЯ СТРУКТУРА СТРАНИЦЫ (Flex-схема)
+   ============================================ */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* ============================================
+   ШАПКА (HEADER) — ДЕСКТОП
    ============================================ */
 header {
   position: sticky;
@@ -76,19 +107,11 @@ header {
 }
 
 /* ============================================
-   КОНТЕЙНЕР
-   ============================================ */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* ============================================
-   ОКНА (WINDOWS) — ОСНОВНОЕ СОДЕРЖИМОЕ
+   ОКНА (WINDOWS)
    ============================================ */
 .window-content {
   display: none;
+  flex: 1;
   padding: 48px 0 64px;
   animation: fadeIn 0.25s ease;
 }
@@ -97,26 +120,26 @@ header {
   display: block;
 }
 
-/* Скрытие неактивных окон */
-.window-content:not(.active) {
-  display: none;
-}
-
-/* Активные окна (по умолчанию) */
-.window-content.active {
-  display: block;
-}
-
-/* Стартовая страница — исключение (нужен flex для центрирования эмблемы) */
+/* Стартовая страница — особое поведение (flex + центрирование) */
 #window-home.window-content.active {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  margin: 0;
 }
 
-/* Стартовая страница — гарантированно скрыта, если не активна */
-#window-home.window-content:not(.active) {
-  display: none;
+/* Остальные окна — обычный блочный режим */
+#window-about.window-content.active,
+#window-steps.window-content.active,
+#window-telemech.window-content.active,
+#window-networks.window-content.active,
+#window-video.window-content.active,
+#window-robotics.window-content.active,
+#window-pilot.window-content.active,
+#window-career.window-content.active,
+#window-contacts.window-content.active {
+  display: block;
 }
 
 @keyframes fadeIn {
@@ -151,12 +174,6 @@ h3 {
   margin: 24px 0 12px;
 }
 
-.section-sub {
-  font-size: 16px;
-  color: var(--ecs-text-light);
-  margin-bottom: 24px;
-}
-
 /* ============================================
    КАРТОЧКИ И КОЛОНКИ
    ============================================ */
@@ -176,25 +193,6 @@ h3 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 28px;
-}
-
-/* ============================================
-   БЛОКИ ДЛЯ ПИЛОТНОГО ПРОЕКТА И ВАКАНСИЙ
-   ============================================ */
-.pilot-block {
-  background: var(--ecs-light);
-  padding: 32px;
-  border-radius: 20px;
-  margin: 24px 0;
-  border-left: 4px solid var(--ecs-accent);
-}
-
-.vacancy {
-  border-left: 3px solid var(--ecs-accent);
-  background: var(--ecs-white);
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 12px;
 }
 
 /* ============================================
@@ -272,7 +270,6 @@ textarea {
   border: 1px solid var(--ecs-border);
 }
 
-/* Выравнивание блоков в окне "Контакты" */
 #window-contacts .two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -280,100 +277,42 @@ textarea {
   align-items: start;
 }
 
-#window-contacts .contact-info,
-#window-contacts .two-col > div:last-child {
-  align-self: start;
-}
-
-#window-contacts .contact-info h3,
-#window-contacts .two-col > div:last-child form {
-  margin-top: 0;
-}
-
-#window-contacts .contact-info {
-  padding-top: 20px;
-}
-
-#window-contacts .two-col > div:last-child form {
-  padding-top: 0;
-}
-
 /* ============================================
-   СТАРТОВАЯ СТРАНИЦА (ДЕСКТОП)
+   СТАРТОВАЯ СТРАНИЦА — ЭМБЛЕМА
    ============================================ */
-#window-home {
-  height: auto;
-  min-height: auto;
-  max-height: auto;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
 #window-home img {
-  max-width: 50%;
+  max-width: 45%;
+  max-height: 55%;
   width: auto;
   height: auto;
   object-fit: contain;
-  margin: 0;
-  padding: 0;
   display: block;
 }
 
 /* ============================================
-   ПОДВАЛ (FOOTER)
+   ПОДВАЛ (FOOTER) — ПРИЖАТ К НИЗУ
    ============================================ */
 footer {
   background: var(--ecs-deep);
   color: #cbd5e1;
-  padding: 5px 25px 5px;
-  margin-top: 5px;
+  padding: 32px 24px 24px;
+  margin-top: auto;
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 footer h3 {
   color: white;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   font-size: 18px;
 }
 
-/* Левая колонка */
-footer .left-column .line-1 p,
-footer .left-column .description p {
-  color: #cbd5e1;
-  font-size: 14px;
-  line-height: 1.4;
-}
-
-/* Правая колонка — телефон и email */
-footer .right-column .line-2 p {
-  margin-bottom: 8px;
-}
-
-/* Копирайт */
-.footer-copyright {
-  text-align: center;
-  margin-top: 24px;
-  font-size: 12px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 16px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Ссылки в подвале */
 .phone-link {
   color: #2dd4bf;
   font-size: 18px;
@@ -387,243 +326,166 @@ footer .right-column .line-2 p {
   text-decoration: none;
 }
 
-/* ============================================
-   КНОПКИ (ЕСЛИ ИСПОЛЬЗУЮТСЯ)
-   ============================================ */
-.home-buttons {
-  margin-top: 40px;
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.btn-home {
-  display: inline-block;
-  padding: 12px 28px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.2s;
-}
-
-.btn-home-primary {
-  background: var(--ecs-accent);
-  color: white;
-}
-
-.btn-home-primary:hover {
-  background: var(--ecs-mid);
-}
-
-.btn-home-secondary {
-  border: 1px solid var(--ecs-accent);
-  color: var(--ecs-accent);
-  background: transparent;
-}
-
-.btn-home-secondary:hover {
-  background: var(--ecs-accent);
-  color: white;
-}
-
-/* ============================================
-   АДАПТАЦИЯ: БОЛЬШИЕ ДЕСКТОПЫ (1920px+)
-   ============================================ */
-@media (min-width: 1920px) {
-  .container {
-    max-width: 1400px;
-  }
-  h1 {
-    font-size: 44px;
-  }
-  h2 {
-    font-size: 30px;
-  }
-  .footer-grid {
-    max-width: 1400px;
-  }
-}
-
-/* ============================================
-   АДАПТАЦИЯ: НОУТБУКИ (до 1200px)
-   ============================================ */
-@media (max-width: 1200px) {
-  .container {
-    padding: 0 20px;
-  }
-  .footer-grid {
-    gap: 30px;
-  }
+.footer-copyright {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 12px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ============================================
    АДАПТАЦИЯ: ПЛАНШЕТЫ (до 991px)
    ============================================ */
 @media (max-width: 991px) {
-  h1 {
-    font-size: 32px;
-  }
-  h2 {
-    font-size: 24px;
-  }
-  h3 {
-    font-size: 18px;
-  }
-  .two-col {
-    gap: 20px;
-  }
-  .window-content {
-    padding: 32px 0 48px;
-  }
+  h1 { font-size: 32px; }
+  h2 { font-size: 24px; }
+  h3 { font-size: 18px; }
+  .two-col { gap: 20px; }
+  .window-content { padding: 32px 0 48px; }
+  #window-home img { max-width: 50%; max-height: 50%; }
 }
 
 /* ============================================
-   АДАПТАЦИЯ: ТЕЛЕФОНЫ И ПЛАНШЕТЫ (до 768px)
+   АДАПТАЦИЯ: МОБИЛЬНЫЕ (до 768px)
    ============================================ */
 @media (max-width: 768px) {
   /* Шапка */
   header > div:first-child {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 8px;
-    padding: 12px 16px !important;
-  }
-  header > div:first-child > div:first-child {
+    display: flex !important;
     flex-direction: row !important;
-    align-items: center;
-    gap: 8px;
-  }
-  header .logo {
-    font-size: 16px !important;
-  }
-  header .logo .subtitle {
-    font-size: 9px !important;
-  }
-  header img[alt="ECS logo"] {
-    height: 32px !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px 16px !important;
   }
 
-  /* Меню */
+  header > div:first-child > div:first-child {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px !important;
+    cursor: pointer;
+  }
+
+  header img[alt="ECS logo"] {
+    height: 32px !important;
+    width: auto;
+  }
+
+  header .logo {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    text-align: left !important;
+  }
+
+  header .logo .subtitle {
+    font-size: 8px !important;
+    font-weight: 400 !important;
+    margin-top: 3px !important;
+    text-align: left !important;
+    display: block !important;
+  }
+
+  header > div:first-child > div:last-child {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 6px !important;
+    padding: 4px !important;
+    flex-shrink: 0 !important;
+  }
+
+  header > div:first-child > div:last-child a {
+    padding: 4px 10px !important;
+    font-size: 11px !important;
+  }
+
+  /* Меню (2 колонки) */
   nav {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     gap: 8px 16px !important;
+    text-align: left !important;
     justify-content: start !important;
+    padding: 8px 0 !important;
   }
+
   .nav-link {
+    display: block !important;
+    padding: 4px 0 !important;
     font-size: 13px !important;
     text-align: left !important;
+    border-bottom: none !important;
   }
 
   /* Контент */
   .window-content {
     padding: 24px 0 32px;
   }
-  h1 {
-    font-size: 28px;
-  }
-  h2 {
-    font-size: 20px;
-  }
-  .two-col,
-  .footer-grid {
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-  }
+
+  h1 { font-size: 28px; }
+  h2 { font-size: 20px; }
+  .two-col { grid-template-columns: 1fr !important; gap: 20px !important; }
 
   /* Стартовая страница */
-  #window-home {
-    min-height: 40vh;
-  }
   #window-home img {
     max-width: 60%;
-    max-height: 50%;
+    max-height: 45%;
   }
 
   /* Подвал */
   footer {
-    padding: 16px 16px 12px;
+    padding: 20px 16px 16px;
+    margin-top: 0;
   }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    text-align: center !important;
+  }
+
   .footer-copyright {
-    margin-top: 16px;
+    margin-top: 20px;
     padding-top: 12px;
     font-size: 10px;
   }
-  .phone-link {
-    font-size: 16px;
-  }
-  .email-link {
-    font-size: 12px;
-  }
+
+  .phone-link { font-size: 16px !important; }
+  .email-link { font-size: 12px !important; }
 
   /* Контакты */
-  #window-contacts .two-col {
-    display: block !important;
-  }
-  #window-contacts .contact-info {
-    margin-bottom: 20px;
-  }
+  #window-contacts .two-col { display: block !important; }
+  #window-contacts .contact-info { margin-bottom: 20px; }
 }
 
 /* ============================================
    АДАПТАЦИЯ: МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 480px)
    ============================================ */
 @media (max-width: 480px) {
-  h1 {
-    font-size: 24px;
-  }
-  h2 {
-    font-size: 18px;
-  }
-  .nav-link {
-    font-size: 12px !important;
-  }
-  #window-home img {
-    max-width: 70%;
-    max-height: 60%;
-  }
-  .phone-link {
-    font-size: 14px;
-  }
-  .email-link {
-    font-size: 11px;
-  }
-  footer p {
-    font-size: 11px;
-  }
-  .footer-copyright {
-    font-size: 9px;
-  }
+  h1 { font-size: 24px; }
+  h2 { font-size: 18px; }
+  .nav-link { font-size: 12px !important; }
+  #window-home img { max-width: 70%; max-height: 40%; }
+  .phone-link { font-size: 14px !important; }
+  .email-link { font-size: 11px !important; }
+  footer p { font-size: 11px; }
+  .footer-copyright { font-size: 9px; }
 }
 
 /* ============================================
-   АДАПТАЦИЯ: САМЫЕ МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 375px)
+   АДАПТАЦИЯ: САМЫЕ МАЛЕНЬКИЕ (до 375px)
    ============================================ */
 @media (max-width: 375px) {
-  header .logo {
-    font-size: 14px !important;
-  }
-  header .logo .subtitle {
-    font-size: 8px !important;
-  }
-  header img[alt="ECS logo"] {
-    height: 28px !important;
-  }
-  .nav-link {
-    font-size: 11px !important;
-  }
-  #window-home img {
-    max-width: 80%;
-    max-height: 70%;
-  }
-  .phone-link {
-    font-size: 13px;
-  }
-  .email-link {
-    font-size: 10px;
-  }
-  .contact-info p {
-    font-size: 12px;
-  }
+  header .logo { font-size: 12px !important; }
+  header .logo .subtitle { font-size: 7px !important; }
+  header img[alt="ECS logo"] { height: 28px !important; }
+  .nav-link { font-size: 11px !important; }
+  #window-home img { max-width: 80%; max-height: 35%; }
+  .phone-link { font-size: 13px !important; }
+  .email-link { font-size: 10px !important; }
+  .contact-info p { font-size: 12px; }
 }
