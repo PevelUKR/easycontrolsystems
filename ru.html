@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+  <title>Easy Control Systems</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="ECS.png" />
+  <link rel="shortcut icon" href="ECS.png" />
+  
+  <!-- Подключение шрифта Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Основные стили -->
+  <link rel="stylesheet" href="style.css?v=2" />
+</head>
+
+<body>
+
+<!-- ======================================== -->
+<!-- HEADER: ШАПКА САЙТА                      -->
+<!-- ======================================== -->
+<header>
+  <!-- Верхняя строка: логотип + переключатель языков -->
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 40px 12px 40px;">
+    <!-- Логотип с кликом на главную -->
+    <div style="display: flex; align-items: center; gap: 14px; cursor: pointer;" onclick="showWindow('home')">
+      <img src="ECS.png" alt="ECS logo" style="height: 44px; width: auto;" />
+      <div class="logo">
+        Easy Control Systems
+        <div class="subtitle">Проектирование и внедрение телемеханики</div>
+      </div>
+    </div>
+    
+    <!-- Переключатель языков EN/RU -->
+    <div style="display:flex; gap:8px; background:#eff6ff; border:1px solid #bfdbfe; padding:4px; border-radius:40px;">
+      <a href="index.html" style="text-decoration:none; padding:6px 16px; border-radius:40px; color:#0a2a44; font-weight:700; font-size:13px;">EN</a>
+      <a href="ru.html" style="text-decoration:none; padding:6px 16px; border-radius:40px; background:#0a2a44; color:#fff; font-weight:700; font-size:13px;">RU</a>
+    </div>
+  </div>
+  
+  <!-- Навигационное меню -->
+  <div style="background: #f8fafc; padding: 10px 40px; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+    <nav style="display: flex; justify-content: flex-end; gap: 28px; flex-wrap: wrap;">
+      <a href="#" data-window="about" class="nav-link">О компании</a>
+      <a href="#" data-window="steps" class="nav-link">Этапы работ</a>
+      <a href="#" data-window="telemech" class="nav-link">Телемеханика</a>
+      <a href="#" data-window="networks" class="nav-link">Сети</a>
+      <a href="#" data-window="video" class="nav-link">Видеонаблюдение</a>
+      <a href="#" data-window="robotics" class="nav-link">Робототехника</a>
+      <a href="#" data-window="pilot" class="nav-link">Пилотный проект</a>
+      <a href="#" data-window="career" class="nav-link">Карьера</a>
+      <a href="#" data-window="contacts" class="nav-link">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ======================================== -->
+<!-- MAIN: ОСНОВНОЕ СОДЕРЖИМОЕ (ОКНА)        -->
+<!-- ======================================== -->
+<main class="container">
+  
+  <!-- СТАРТОВАЯ СТРАНИЦА (ГЛАВНАЯ) -->
+  <div id="window-home" class="window-content active">
+    <img src="ECS_e.png" alt="ECS Logo" />
+  </div>
+
+  <!-- О КОМПАНИИ -->
+  <div id="window-about" class="window-content">
+    <h1>О компании</h1>
+    <p>Мы — инженерная команда, специализирующаяся на телемеханике и системах промышленной автоматизации.</p>
+    <p>Наша деятельность направлена на повышение операционной эффективности бизнеса за счёт оптимизации использования энергетических и человеческих ресурсов.</p>
+
+    <h2>Как мы работаем</h2>
+    <p>Мы предлагаем модель, основанную на предварительном комплексном аудите. Первичный аудит проводится бесплатно. Оплата услуг начинается только после завершения аудита и принятия вами решения о внедрении разработанных решений.</p>
+    <p>Мы исключаем неоправданные риски и экспериментальные подходы в финансовой части проектов. Все решения принимаются на основе технического анализа, расчётов и подтверждённого практического опыта.</p>
+    <p>По результатам первичной оценки мы определяем:</p>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
+      <li>возможность реализации проекта;</li>
+      <li>экономическую эффективность;</li>
+      <li>ориентировочные сроки окупаемости.</li>
+    </ul>
+
+    <h2>Компетенции и соответствие нормативам</h2>
+    <p>Компания обладает расширяющимся набором лицензий и компетенций, которые позволяют реализовывать широкий спектр инженерных задач. Перед началом работ наш юридический отдел проводит дополнительную проверку проекта на соответствие нормативным требованиям.</p>
+
+    <h2>География деятельности</h2>
+    <p>США, Канада, Мексика.</p>
+
+    <h2>Документация</h2>
+    <p>По завершении проектов мы предоставляем полный комплект технической и эксплуатационной документации, включая руководства по обслуживанию и сопровождению систем.</p>
+
+    <h2>Отправьте запрос</h2>
+    <div id="form-about"></div>
+  </div>
+
+  <!-- ЭТАПЫ РАБОТ -->
+  <div id="window-steps" class="window-content">
+    <h1>Этапы работ</h1>
+
+    <h3>1. Приём и первичный анализ запроса</h3>
+    <ul>
+      <li>Обработка входящего запроса от заказчика</li>
+      <li>Формирование первичного понимания задачи, проблемы или идеи</li>
+    </ul>
+
+    <h3>2. Сбор и анализ исходных данных</h3>
+    <ul>
+      <li>Взаимодействие с заказчиком и/или его уполномоченными представителями</li>
+      <li>Получение и анализ существующей проектной и технической документации</li>
+    </ul>
+
+    <h3>3. Комплексный аудит (бесплатно)</h3>
+    <ul>
+      <li>Оценка технической возможности внедрения</li>
+      <li>Анализ экономической целесообразности</li>
+      <li>Расчёт прогнозируемых сроков окупаемости</li>
+    </ul>
+
+    <h3>4. Проектирование и согласование решения</h3>
+    <ul>
+      <li>Подготовка технического задания</li>
+      <li>Разработка предварительного проекта с графиком работ и спецификацией</li>
+      <li>Согласование финальной версии технического решения с заказчиком</li>
+    </ul>
+
+    <h3>5. Внедрение и пусконаладочные работы</h3>
+    <ul>
+      <li>Реализация проекта, настройка систем, проведение испытаний</li>
+      <li>Предоставление полного комплекта технической и эксплуатационной документации</li>
+    </ul>
+
+    <h3>6. Постпроектное сопровождение</h3>
+    <ul>
+      <li>Поддержка систем в гарантийный период</li>
+      <li>Поддержка систем в послегарантийный период</li>
+    </ul>
+  </div>
+
+  <!-- ТЕЛЕМЕХАНИКА -->
+  <div id="window-telemech" class="window-content">
+    <h1>Телемеханика</h1>
+    <h3>1. Работа с существующими системами</h3>
+    <ul>
+      <li>Диагностика</li>
+      <li>Ремонт</li>
+      <li>Модернизация</li>
+      <li>Оптимизация</li>
+    </ul>
+    <h3>2. Построение новой системы</h3>
+    <ul>
+      <li>Подбор SCADA, оборудования, облачных платформ</li>
+      <li>Монтаж, установка и пусконаладочные работы как локального так и полевого оборудования</li>
+      <li>Реализация базовой логики</li>
+      <li>Настройка оповещений, архивации, трендов</li>
+      <li>Настройка удалённого доступа</li>
+    </ul>
+    <h3>Поддерживаемые протоколы</h3>
+    <p>Modbus, МЭК 60870-5-104, DNP3, OPC, MQTT и другие.</p>
+  </div>
+
+  <!-- СЕТИ -->
+  <div id="window-networks" class="window-content">
+    <h1>Сети</h1>
+    <h3>Работы с сетевыми инфраструктурами</h3>
+    <ul>
+      <li>Ремонт после повреждений</li>
+      <li>Модернизация существующих сетей</li>
+      <li>Проектирование и внедрение новых сетей</li>
+      <li>Настройка коммутационного оборудования</li>
+    </ul>
+    <h3>Поддерживаемые типы сред</h3>
+    <ul>
+      <li>Медные линии (телефонные пары)</li>
+      <li>Коаксиальный кабель, Ethernet (витая пара), оптоволокно</li>
+      <li>Беспроводные сети (антенны, радиорелейное оборудование)</li>
+      <li>Высокочастотные (LOS) в условиях прямой видимости и низкочастотные (NLOS) при отсутсвии прямой видимости радиоканалы</li>
+    </ul>
+    <h3>Дополнительно</h3>
+    <ul>
+      <li>Проведение интернета</li>
+    </ul>
+  </div>
+
+  <!-- ВИДЕОНАБЛЮДЕНИЕ -->
+  <div id="window-video" class="window-content">
+    <h1>Видеонаблюдение</h1>
+    
+    <h3>Работа с существующими системами</h3>
+    <ul><li>Диагностика</li><li>Ремонт</li><li>Модернизация</li><li>Оптимизация</li></ul>
+    
+    <h3>Построение новой системы</h3>
+    <ul><li>Подбор оборудования, облачных платформ</li><li>Подбор видеокамер</li><li>Монтаж, пусконаладочные работы</li><li>Настройка удалённого доступа</li></ul>
+    
+    <h3>Видеоверификация тревог — мониторинг с живым оператором</h3>
+    <ul>
+      <li>При срабатывании детектора движения или друших критических оповезений в нерабочее время (after hours), наш оператор просматривает событие в реальном времени</li>
+      <li>Анализирует видеоархив и подтверждает или отклоняет тревогу</li>
+      <li>При ложной тревоге — система сбрасывается, вызов полиции не производится</li>
+      <li>При подтверждённом вторжении — оператор немедленно уведомляет экстренные службы с указанием точного места и описанием инцидента</li>
+    </ul>
+    
+    <h3>Преимущества видеоверификации</h3>
+    <ul>
+      <li>Отсутствие штрафов за ложные вызовы полиции (экономия до $500 за инцидент)</li>
+      <li>Быстрое реагирование на реальные угрозы</li>
+      <li>Круглосуточный контроль (24/7)</li>
+      <li>Юридически значимое подтверждение инцидента</li>
+      <li>Соответствие стандарту видеоверификации тревог (AVL-01)</li>
+    </ul>
+
+    <h3>Дополнительные услуги</h3>
+    <ul>
+      <li>Мы берём на себя полное обслуживание системы видеонаблюдения — плановое и аварийное</li>
+      <li>По запросу (при необходимости расследования инцидента) — оперативно предоставляем нужную запись из архива с меткой времени и экспортом в требуемом формате</li>
+    </ul>
+  </div>
+
+  <!-- РОБОТОТЕХНИКА -->
+  <div id="window-robotics" class="window-content">
+    <h1>Робототехника</h1>
+
+    <h3>1. Калибровка и подготовка к транспортировке</h3>
+    <ul>
+      <li>Подготовка робота к транспортировке (фиксация осей, защита компонентов)</li>
+      <li>Транспортировка с соблюдением требований производителя</li>
+      <li>Установка на новом месте и повторная калибровка после транспортировки</li>
+    </ul>
+
+    <h3>2. Восстановление после аварийных ситуаций</h3>
+    <ul>
+      <li>Разблокирование робота</li>
+      <li>Рекалибровка после столкновений и механических повреждений</li>
+      <li>Проверка работоспособности всех осей и датчиков</li>
+    </ul>
+
+    <h3>3. Программирование и интеграция</h3>
+    <ul>
+      <li>Разработка программы «с нуля» под вашу задачу</li>
+      <li>Корректировка существующих программ — оптимизация, добавление функций</li>
+      <li>Интеграция робота с дополнительным ПЛК вашей системы</li>
+      <li>Интеграция со SCADA-системой для централизованного управления и мониторинга</li>
+    </ul>
+
+    <h3>4. Сервис и поддержка</h3>
+    <ul>
+      <li>Организация связи с производителем для гарантийного и послегарантийного ремонта</li>
+      <li>Консультации по эксплуатации и обслуживанию</li>
+      <li>Аварийный выезд специалиста (по запросу)</li>
+    </ul>
+  </div>
+
+  <!-- ПИЛОТНЫЙ ПРОЕКТ -->
+<div id="window-pilot" class="window-content">
+  <h1>Пилотный проект</h1>
+
+  <h3>Наша компания заинтересована в формировании качественного референс-листа внедрённых проектов в сегменте малого бизнеса</h3>
+  <h3>Условия пилотного проекта</h3>
+  <ul>
+    <li>Согласие заказчика на использование выполненного проекта в рекламных и маркетинговых целях</li>
+    <li>Реализация пилотного проекта по себестоимости оборудования (работы выполняются бесплатно)</li>
+    <li>Стоимость ограничивается прямыми затратами на приобретение оборудования</li>
+  </ul>
+
+  <h3>Как подать заявку</h3>
+  <ul>
+    <li>Направьте предложение через форму ниже</li>
+    <li>Мы свяжемся с вами для обсуждения деталей</li>
+  </ul>
+
+  <div id="form-pilot"></div>
+</div>
+
+  <!-- КАРЬЕРА -->
+  <div id="window-career" class="window-content">
+    <h1>Карьера</h1>
+
+    <h3>SCADA-программист (Ignition)</h3>
+    <ul>
+      <li>Опыт работы с SCADA Ignition</li>
+    </ul>
+
+    <h3>Монтажник радиорелейного оборудования</h3>
+    <ul>
+      <li>Работа в команду полевых инженеров</li>
+      <li>Действующая лицензия (допуск) на верхолазные работы</li>
+    </ul>
+
+    <h3>Инженер-проектировщик (нормоконтроль)</h3>
+    <ul>
+      <li>Финальная подготовка проектной документации</li>
+      <li>Опыт работы: AutoCAD, CorelDRAW</li>
+    </ul>
+
+    <p style="margin-top: 32px; margin-bottom: 20px;">Для получения подробной информации направляйте резюме с указанием обратной связи через форму ниже:</p>
+
+    <div id="form-career"></div>
+  </div>
+
+  <!-- КОНТАКТЫ -->
+  <div id="window-contacts" class="window-content">
+    <h1>Контакты</h1>
+    <div class="two-col">
+      <div class="contact-info">
+        <h3>Свяжитесь с нами</h3>
+        <p><strong>Адрес:</strong><br>11390 Old Roswell Rd,<br>Alpharetta, GA 30009</p>
+        <p><strong>Телефон:</strong><br>+1 (929) 836-7095</p>
+        <p><strong>Email:</strong><br>info@easycontrolsystems.com</p>
+      </div>
+      <div class="contact-info">
+        <h3>Напишите нам</h3>
+        <div id="form-contacts"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ======================================== -->
+<!-- FOOTER: ПОДВАЛ САЙТА                     -->
+<!-- ======================================== -->
+<footer>
+  <div class="footer-grid">
+    <div class="left-column">
+      <div class="line-1">
+        <h3>Easy Control Systems</h3>
+      </div>
+      <div class="line-2">
+        <p>Проектирование и внедрение телемеханики</p>
+      </div>      
+    </div>
+    <div class="right-column">
+      <div class="line-1">
+        <h3>Контакты</h3>
+      </div>
+      <div class="line-2">
+        <p><a href="tel:+19298367095" class="phone-link">+1 (929) 836-7095</a></p>
+      </div>
+      <div class="line-3">
+        <p><a href="mailto:info@easycontrolsystems.com" class="email-link">info@easycontrolsystems.com</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <p>© 2026 Easy Control Systems. Все права защищены.</p>
+  </div>
+</footer>
+
+<!-- ======================================== -->
+<!-- SCRIPT: ФОРМЫ И ПЕРЕКЛЮЧЕНИЕ ОКОН        -->
+<!-- ======================================== -->
+<script>
+  // Функция создания формы (с поддержкой файлов)
+  function createForm(actionUrl, formType = 'default', maxSizeMB = 10) {
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = actionUrl;
+    form.enctype = 'multipart/form-data';
+
+    let fileHtml = '';
+    let sizeText = '';
+
+    if (formType === 'file') {
+      fileHtml = `
+        <label>Прикрепить файл (не более ${maxSizeMB} МБ)</label>
+        <input type="file" name="attachment" accept=".pdf,.docx,.jpg,.png,.zip,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
+      `;
+      sizeText = ` Файл не более ${maxSizeMB} МБ.`;
+    }
+
+    form.innerHTML = `
+      <label>Имя</label><input name="name" type="text" required />
+      <label>Телефон</label><input name="phone" type="text" />
+      <label>Email</label><input name="email" type="email" required />
+      ${fileHtml}
+      <label>Сообщение</label><textarea name="message" required></textarea>
+      <input type="hidden" name="_subject" value="Заявка ECS" />
+      <button class="submit" type="submit">Отправить</button>
+      <div class="small-note">Мы отвечаем на каждое сообщение.${sizeText}</div>
+    `;
+    return form;
+  }
+
+  // Проверка размера файла
+  function validateFileSize(fileInput, maxSizeMB = 10) {
+    const file = fileInput.files[0];
+    if (!file) return true;
+
+    const maxSizeInBytes = maxSizeMB * 1024 * 1024;
+    if (file.size > maxSizeInBytes) {
+      alert(`Ошибка: Файл не должен превышать ${maxSizeMB} МБ. Ваш файл: ${(file.size / (1024 * 1024)).toFixed(2)} МБ`);
+      fileInput.value = '';
+      return false;
+    }
+    return true;
+  }
+
+  // Инициализация форм
+  const formUrl = 'https://formspree.io/f/mdaynnqn';
+  const maxFileSize = 10;
+
+  const formAbout = createForm(formUrl, 'file', maxFileSize);
+  const formPilot = createForm(formUrl, 'file', maxFileSize);
+  const formCareer = createForm(formUrl, 'file', maxFileSize);
+  const formContacts = createForm(formUrl, 'file', maxFileSize);
+
+  document.getElementById('form-about')?.appendChild(formAbout);
+  document.getElementById('form-pilot')?.appendChild(formPilot);
+  document.getElementById('form-career')?.appendChild(formCareer);
+  document.getElementById('form-contacts')?.appendChild(formContacts);
+
+  // Проверка файлов для всех форм
+  const allForms = [formAbout, formPilot, formCareer, formContacts];
+  allForms.forEach(form => {
+    if (form) {
+      form.addEventListener('submit', function(event) {
+        const fileInput = form.querySelector('input[type="file"]');
+        if (!validateFileSize(fileInput, maxFileSize)) {
+          event.preventDefault();
+        }
+      });
+    }
+  });
+
+  // Управление переключением окон
+  const windows = document.querySelectorAll('.window-content');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  window.showWindow = function(windowId) {
+    windows.forEach(win => win.classList.remove('active'));
+    const target = document.getElementById(`window-${windowId}`);
+    if (target) target.classList.add('active');
+    history.pushState({ windowId }, '', `#${windowId}`);
+  };
+
+  // Назначение обработчиков для пунктов меню
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const windowId = link.getAttribute('data-window');
+      showWindow(windowId);
+    });
+  });
+
+  // Обработка кнопок на главной странице (если есть)
+  document.querySelectorAll('.btn-home-primary, .btn-home-secondary').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const windowId = btn.getAttribute('data-window');
+      if (windowId) showWindow(windowId);
+    });
+  });
+
+  // Определение начального окна по хешу или по умолчанию
+  const hash = window.location.hash.slice(1);
+  if (hash && document.getElementById(`window-${hash}`)) {
+    showWindow(hash);
+  } else {
+    showWindow('home');
+  }
+
+  // Обработка навигации браузера (кнопки "назад" / "вперёд")
+  window.addEventListener('popstate', (e) => {
+    if (e.state && e.state.windowId) {
+      showWindow(e.state.windowId);
+    } else {
+      showWindow('home');
+    }
+  });
+</script>
+</body>
+</html>

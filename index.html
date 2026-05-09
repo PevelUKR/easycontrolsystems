@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+  <title>Easy Control Systems</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="ECS.png" />
+  <link rel="shortcut icon" href="ECS.png" />
+  
+  <!-- Montserrat Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=2" />
+</head>
+
+<body>
+
+<!-- ======================================== -->
+<!-- HEADER                                    -->
+<!-- ======================================== -->
+<header>
+  <!-- Top row: logo + language switcher -->
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 40px 12px 40px;">
+    <!-- Logo with click-to-home -->
+    <div style="display: flex; align-items: center; gap: 14px; cursor: pointer;" onclick="showWindow('home')">
+      <img src="ECS.png" alt="ECS logo" style="height: 44px; width: auto;" />
+      <div class="logo">
+        Easy Control Systems
+        <div class="subtitle">Design and Implementation of Telematics Systems</div>
+      </div>
+    </div>
+    
+    <!-- Language Switcher EN/RU -->
+    <div style="display:flex; gap:8px; background:#eff6ff; border:1px solid #bfdbfe; padding:4px; border-radius:40px;">
+      <a href="index.html" style="text-decoration:none; padding:6px 16px; border-radius:40px; background:#0a2a44; color:#fff; font-weight:700; font-size:13px;">EN</a>
+      <a href="ru.html" style="text-decoration:none; padding:6px 16px; border-radius:40px; color:#0a2a44; font-weight:700; font-size:13px;">RU</a>
+    </div>
+  </div>
+  
+  <!-- Navigation Menu -->
+  <div style="background: #f8fafc; padding: 10px 40px; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+    <nav style="display: flex; justify-content: flex-end; gap: 28px; flex-wrap: wrap;">
+      <a href="#" data-window="about" class="nav-link">About</a>
+      <a href="#" data-window="steps" class="nav-link">Workflow</a>
+      <a href="#" data-window="telemech" class="nav-link">Telemechanics</a>
+      <a href="#" data-window="networks" class="nav-link">Networks</a>
+      <a href="#" data-window="video" class="nav-link">Video Surveillance</a>
+      <a href="#" data-window="robotics" class="nav-link">Robotics</a>
+      <a href="#" data-window="pilot" class="nav-link">Pilot Project</a>
+      <a href="#" data-window="career" class="nav-link">Career</a>
+      <a href="#" data-window="contacts" class="nav-link">Contacts</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ======================================== -->
+<!-- MAIN CONTENT (WINDOWS)                   -->
+<!-- ======================================== -->
+<main class="container">
+  
+  <!-- HOME / START PAGE -->
+  <div id="window-home" class="window-content active">
+    <img src="ECS_e.png" alt="ECS Logo" />
+  </div>
+
+  <!-- ABOUT US -->
+  <div id="window-about" class="window-content">
+    <h1>About Us</h1>
+    <p>We are an engineering team specializing in telemechanics and industrial automation systems.</p>
+    <p>Our mission is to enhance business operational efficiency by optimizing the use of energy and human resources.</p>
+
+    <h2>How We Work</h2>
+    <p>We operate on a model based on a preliminary comprehensive audit. The initial audit is free of charge. Payment for our services begins only after the audit is completed and you decide to implement the proposed solutions.</p>
+    <p>We eliminate unjustified risks and experimental approaches in the financial side of projects. All decisions are made on the basis of technical analysis, calculations, and proven practical experience.</p>
+    <p>Based on the initial assessment, we determine:</p>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
+      <li>project feasibility;</li>
+      <li>economic efficiency;</li>
+      <li>estimated payback period.</li>
+    </ul>
+
+    <h2>Competencies and Regulatory Compliance</h2>
+    <p>Our company has an expanding set of licenses and competencies, allowing us to handle a wide range of engineering tasks. Before starting any project, our legal department performs an additional review to ensure compliance with regulatory requirements.</p>
+
+    <h2>Geography</h2>
+    <p>USA, Canada, Mexico.</p>
+
+    <h2>Documentation</h2>
+    <p>Upon project completion, we provide a complete set of technical and operational documentation, including maintenance and system support manuals.</p>
+
+    <h2>Send a Request</h2>
+    <div id="form-about"></div>
+  </div>
+
+  <!-- WORKFLOW STAGES -->
+  <div id="window-steps" class="window-content">
+    <h1>Workflow Stages</h1>
+
+    <h3>1. Request Intake and Initial Analysis</h3>
+    <ul>
+      <li>Processing incoming client requests</li>
+      <li>Forming an initial understanding of the task, problem, or idea</li>
+    </ul>
+
+    <h3>2. Data Collection and Analysis</h3>
+    <ul>
+      <li>Interaction with the client and/or their authorized representatives</li>
+      <li>Obtaining and analyzing existing project and technical documentation</li>
+    </ul>
+
+    <h3>3. Comprehensive Audit (Free of Charge)</h3>
+    <ul>
+      <li>Assessment of technical feasibility</li>
+      <li>Analysis of economic viability</li>
+      <li>Calculation of estimated payback period</li>
+    </ul>
+
+    <h3>4. Design and Solution Approval</h3>
+    <ul>
+      <li>Preparation of technical specifications</li>
+      <li>Development of a preliminary project with work schedule and specifications</li>
+      <li>Approval of the final technical solution with the client</li>
+    </ul>
+
+    <h3>5. Implementation and Commissioning</h3>
+    <ul>
+      <li>Project execution, system configuration, testing</li>
+      <li>Provision of complete technical and operational documentation</li>
+    </ul>
+
+    <h3>6. Post-Project Support</h3>
+    <ul>
+      <li>Support during the warranty period</li>
+      <li>Support after the warranty period</li>
+    </ul>
+  </div>
+
+  <!-- TELEMECHANICS -->
+  <div id="window-telemech" class="window-content">
+    <h1>Telemechanics</h1>
+    <h3>1. Working with Existing Systems</h3>
+    <ul>
+      <li>Diagnostics</li>
+      <li>Repair</li>
+      <li>Upgrade</li>
+      <li>Optimization</li>
+    </ul>
+    <h3>2. Building a New System</h3>
+    <ul>
+      <li>Selection of SCADA systems, hardware, cloud platforms</li>
+      <li>Installation, setup, and commissioning of both local and field equipment</li>
+      <li>Implementation of basic control logic</li>
+      <li>Configuration of alerts, data archiving, trends</li>
+      <li>Remote access configuration</li>
+    </ul>
+    <h3>Supported Protocols</h3>
+    <p>Modbus, IEC 60870-5-104, DNP3, OPC, MQTT and others.</p>
+  </div>
+
+  <!-- NETWORKS -->
+  <div id="window-networks" class="window-content">
+    <h1>Networks</h1>
+    <h3>Network Infrastructure Services</h3>
+    <ul>
+      <li>Post-damage network repair</li>
+      <li>Upgrading existing networks</li>
+      <li>Design and deployment of new networks</li>
+      <li>Switching equipment configuration</li>
+    </ul>
+    <h3>Supported Transmission Media</h3>
+    <ul>
+      <li>Copper lines (telephone pairs)</li>
+      <li>Coaxial cable, Ethernet (twisted pair), fiber optics</li>
+      <li>Wireless networks (antennas, microwave radio equipment)</li>
+      <li>High-frequency (LOS) line-of-sight and low-frequency (NLOS) non-line-of-sight radio channels</li>
+    </ul>
+    <h3>Additional Services</h3>
+    <ul>
+      <li>Internet connectivity setup</li>
+    </ul>
+  </div>
+
+  <!-- VIDEO SURVEILLANCE -->
+  <div id="window-video" class="window-content">
+    <h1>Video Surveillance</h1>
+    
+    <h3>Working with Existing Systems</h3>
+    <ul><li>Diagnostics</li><li>Repair</li><li>Upgrade</li><li>Optimization</li></ul>
+    
+    <h3>Building a New System</h3>
+    <ul><li>Equipment and cloud platform selection</li><li>Camera selection</li><li>Installation, setup, and commissioning</li><li>Remote access configuration</li></ul>
+    
+    <h3>Alarm Video Verification — Live Operator Monitoring</h3>
+    <ul>
+      <li>When motion is detected or other critical alerts occur after hours, our operator reviews the event in real time</li>
+      <li>Analyzes the video archive and confirms or dismisses the alarm</li>
+      <li>If false alarm — the system is reset, no police dispatch</li>
+      <li>If a genuine intrusion is confirmed — the operator immediately notifies emergency services with the exact location and incident description</li>
+    </ul>
+    
+    <h3>Benefits of Video Verification</h3>
+    <ul>
+      <li>No fines for false police dispatches (saving up to $500 per incident)</li>
+      <li>Fast response to real threats</li>
+      <li>24/7 monitoring</li>
+      <li>Legally admissible incident evidence</li>
+      <li>Compliance with alarm video verification standard (AVL-01)</li>
+    </ul>
+
+    <h3>Additional Services</h3>
+    <ul>
+      <li>Complete video surveillance system maintenance — scheduled and emergency</li>
+      <li>Upon request (for incident investigation) — fast retrieval of archived footage with timestamp and export in required format</li>
+    </ul>
+  </div>
+
+  <!-- ROBOTICS -->
+  <div id="window-robotics" class="window-content">
+    <h1>Robotics</h1>
+
+    <h3>1. Calibration and Transport Preparation</h3>
+    <ul>
+      <li>Preparing the robot for transport (axis locking, component protection)</li>
+      <li>Transportation in compliance with manufacturer requirements</li>
+      <li>Installation at new site and recalibration after transport</li>
+    </ul>
+
+    <h3>2. Recovery from Emergency Situations</h3>
+    <ul>
+      <li>Robot unlocking</li>
+      <li>Recalibration after collisions and mechanical damage</li>
+      <li>Functional check of all axes and sensors</li>
+    </ul>
+
+    <h3>3. Programming and Integration</h3>
+    <ul>
+      <li>Development of a program from scratch for your specific task</li>
+      <li>Modification of existing programs — optimization, feature enhancement</li>
+      <li>Integration of the robot with your system’s additional PLC</li>
+      <li>Integration with SCADA system for centralized control and monitoring</li>
+    </ul>
+
+    <h3>4. Service and Support</h3>
+    <ul>
+      <li>Arranging communication with the manufacturer for warranty and post-warranty repairs</li>
+      <li>Operational and maintenance consultations</li>
+      <li>Emergency on-site visit (upon request)</li>
+    </ul>
+  </div>
+
+  <!-- PILOT PROJECT -->
+  <div id="window-pilot" class="window-content">
+    <h1>Pilot Project</h1>
+
+    <h3>Our company is interested in building a high‑quality reference list of implemented projects in the small business segment</h3>
+    <h3>Pilot Project Terms</h3>
+    <ul>
+      <li>Client’s consent to use the completed project for advertising and marketing purposes</li>
+      <li>Implementation of the pilot project at equipment cost (labor is free)</li>
+      <li>The total cost is limited to direct expenses for purchasing equipment</li>
+    </ul>
+
+    <h3>How to Apply</h3>
+    <ul>
+      <li>Send your proposal via the form below</li>
+      <li>We will contact you to discuss the details</li>
+    </ul>
+
+    <div id="form-pilot"></div>
+  </div>
+
+  <!-- CAREER -->
+  <div id="window-career" class="window-content">
+    <h1>Career</h1>
+
+    <h3>SCADA Programmer (Ignition)</h3>
+    <ul>
+      <li>Experience with SCADA Ignition</li>
+    </ul>
+
+    <h3>Microwave Radio Equipment Installer</h3>
+    <ul>
+      <li>Join the field engineer team</li>
+      <li>Valid license (certification) for high‑altitude work</li>
+    </ul>
+
+    <h3>Design Engineer (Document Control)</h3>
+    <ul>
+      <li>Final preparation of project documentation</li>
+      <li>Experience with AutoCAD, CorelDRAW</li>
+    </ul>
+
+    <p style="margin-top: 32px; margin-bottom: 20px;">For more information, please send your resume along with your contact details using the form below:</p>
+
+    <div id="form-career"></div>
+  </div>
+
+  <!-- CONTACTS -->
+  <div id="window-contacts" class="window-content">
+    <h1>Contacts</h1>
+    <div class="two-col">
+      <div class="contact-info">
+        <h3>Get in Touch</h3>
+        <p><strong>Address:</strong><br>11390 Old Roswell Rd,<br>Alpharetta, GA 30009</p>
+        <p><strong>Phone:</strong><br>+1 (929) 836-7095</p>
+        <p><strong>Email:</strong><br>info@easycontrolsystems.com</p>
+      </div>
+      <div class="contact-info">
+        <h3>Send us a Message</h3>
+        <div id="form-contacts"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ======================================== -->
+<!-- FOOTER                                    -->
+<!-- ======================================== -->
+<footer>
+  <div class="footer-grid">
+    <div class="left-column">
+      <div class="line-1">
+        <h3>Easy Control Systems</h3>
+      </div>
+      <div class="line-2">
+        <p>Design and Implementation of Telematics Systems</p>
+      </div>      
+    </div>
+    <div class="right-column">
+      <div class="line-1">
+        <h3>Contacts</h3>
+      </div>
+      <div class="line-2">
+        <p><a href="tel:+19298367095" class="phone-link">+1 (929) 836-7095</a></p>
+      </div>
+      <div class="line-3">
+        <p><a href="mailto:info@easycontrolsystems.com" class="email-link">info@easycontrolsystems.com</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <p>© 2026 Easy Control Systems. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ======================================== -->
+<!-- SCRIPT: FORMS AND WINDOW SWITCHING       -->
+<!-- ======================================== -->
+<script>
+  // Form creation function (with file upload support)
+  function createForm(actionUrl, formType = 'default', maxSizeMB = 10) {
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = actionUrl;
+    form.enctype = 'multipart/form-data';
+
+    let fileHtml = '';
+    let sizeText = '';
+
+    if (formType === 'file') {
+      fileHtml = `
+        <label>Attach a file (max ${maxSizeMB} MB)</label>
+        <input type="file" name="attachment" accept=".pdf,.docx,.jpg,.png,.zip,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
+      `;
+      sizeText = ` File size up to ${maxSizeMB} MB.`;
+    }
+
+    form.innerHTML = `
+      <label>Name</label><input name="name" type="text" required />
+      <label>Phone</label><input name="phone" type="text" />
+      <label>Email</label><input name="email" type="email" required />
+      ${fileHtml}
+      <label>Message</label><textarea name="message" required></textarea>
+      <input type="hidden" name="_subject" value="Request to ECS" />
+      <button class="submit" type="submit">Send</button>
+      <div class="small-note">We reply to every message.${sizeText}</div>
+    `;
+    return form;
+  }
+
+  // File size validation
+  function validateFileSize(fileInput, maxSizeMB = 10) {
+    const file = fileInput.files[0];
+    if (!file) return true;
+
+    const maxSizeInBytes = maxSizeMB * 1024 * 1024;
+    if (file.size > maxSizeInBytes) {
+      alert(`Error: File must not exceed ${maxSizeMB} MB. Your file size: ${(file.size / (1024 * 1024)).toFixed(2)} MB`);
+      fileInput.value = '';
+      return false;
+    }
+    return true;
+  }
+
+  // Form initialization
+  const formUrl = 'https://formspree.io/f/mdaynnqn';
+  const maxFileSize = 10;
+
+  const formAbout = createForm(formUrl, 'file', maxFileSize);
+  const formPilot = createForm(formUrl, 'file', maxFileSize);
+  const formCareer = createForm(formUrl, 'file', maxFileSize);
+  const formContacts = createForm(formUrl, 'file', maxFileSize);
+
+  document.getElementById('form-about')?.appendChild(formAbout);
+  document.getElementById('form-pilot')?.appendChild(formPilot);
+  document.getElementById('form-career')?.appendChild(formCareer);
+  document.getElementById('form-contacts')?.appendChild(formContacts);
+
+  // Attach file size validation to all forms
+  const allForms = [formAbout, formPilot, formCareer, formContacts];
+  allForms.forEach(form => {
+    if (form) {
+      form.addEventListener('submit', function(event) {
+        const fileInput = form.querySelector('input[type="file"]');
+        if (!validateFileSize(fileInput, maxFileSize)) {
+          event.preventDefault();
+        }
+      });
+    }
+  });
+
+  // Window switching
+  const windows = document.querySelectorAll('.window-content');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  window.showWindow = function(windowId) {
+    windows.forEach(win => win.classList.remove('active'));
+    const target = document.getElementById(`window-${windowId}`);
+    if (target) target.classList.add('active');
+    history.pushState({ windowId }, '', `#${windowId}`);
+  };
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const windowId = link.getAttribute('data-window');
+      showWindow(windowId);
+    });
+  });
+
+  // Home page buttons (if any)
+  document.querySelectorAll('.btn-home-primary, .btn-home-secondary').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const windowId = btn.getAttribute('data-window');
+      if (windowId) showWindow(windowId);
+    });
+  });
+
+  // Initial window based on URL hash or default to home
+  const hash = window.location.hash.slice(1);
+  if (hash && document.getElementById(`window-${hash}`)) {
+    showWindow(hash);
+  } else {
+    showWindow('home');
+  }
+
+  window.addEventListener('popstate', (e) => {
+    if (e.state && e.state.windowId) {
+      showWindow(e.state.windowId);
+    } else {
+      showWindow('home');
+    }
+  });
+</script>
+</body>
+</html>
