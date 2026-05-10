@@ -106,6 +106,12 @@ header {
   border-bottom-color: var(--ecs-accent);
 }
 
+/* Активная кнопка в меню */
+.nav-link.active {
+  color: #3b82f6;
+  border-bottom-color: #3b82f6;
+}
+
 /* ============================================
    ОКНА (WINDOWS)
    ============================================ */
