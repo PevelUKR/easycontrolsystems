@@ -448,11 +448,14 @@
   const target = document.getElementById(`window-${windowId}`);
   if (target) target.classList.add('active');
   history.pushState({ windowId }, '', `#${windowId}`);
-  
+
   navLinks.forEach(link => link.classList.remove('active'));
   const activeLink = document.querySelector(`.nav-link[data-window="${windowId}"]`);
   if (activeLink) activeLink.classList.add('active');
-  
+
+  // На главной странице скролл всегда виден — нет прыжка при переключении
+  document.documentElement.style.overflowY = (windowId === 'home') ? 'scroll' : '';
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
