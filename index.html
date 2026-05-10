@@ -429,12 +429,18 @@
   const windows = document.querySelectorAll('.window-content');
   const navLinks = document.querySelectorAll('.nav-link');
 
-  window.showWindow = function(windowId) {
-    windows.forEach(win => win.classList.remove('active'));
-    const target = document.getElementById(`window-${windowId}`);
-    if (target) target.classList.add('active');
-    history.pushState({ windowId }, '', `#${windowId}`);
-  };
+ window.showWindow = function(windowId) {
+  windows.forEach(win => win.classList.remove('active'));
+  const target = document.getElementById(`window-${windowId}`);
+  if (target) target.classList.add('active');
+  history.pushState({ windowId }, '', `#${windowId}`);
+  
+  navLinks.forEach(link => link.classList.remove('active'));
+  const activeLink = document.querySelector(`.nav-link[data-window="${windowId}"]`);
+  if (activeLink) activeLink.classList.add('active');
+  
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
