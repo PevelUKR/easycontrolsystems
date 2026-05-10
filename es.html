@@ -24,8 +24,8 @@
 <header>
   <!-- Верхняя строка: логотип + переключатель языков -->
   <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 40px 12px 40px;">
-    <!-- Логотип с кликом на главную -->
-    <div style="display: flex; align-items: center; gap: 14px; cursor: pointer;" onclick="showWindow('home')">
+    <!-- Логотип с кликом на главную (тройной клик = ru.html) -->
+    <div style="display: flex; align-items: center; gap: 14px; cursor: pointer;" onclick="handleLogoClick()">
       <img src="ECS.png" alt="ECS logo" style="height: 44px; width: auto;" />
       <div class="logo">
         Easy Control Systems
@@ -35,8 +35,8 @@
     
      <!-- Переключатель языков EN/ES -->
     <div style="display:flex; gap:8px; background:#eff6ff; border:1px solid #bfdbfe; padding:4px; border-radius:40px;">
-      <a href="index.html"  style="text-decoration:none; padding:6px 16px; border-radius:40px;                     color:#0a2a44; font-weight:700; font-size:13px;">EN</a>
-      <a href="es.html"     style="text-decoration:none; padding:6px 16px; border-radius:40px; background:#0a2a44; color:#fff;    font-weight:700; font-size:13px;">ES</a>
+      <a href="index.html" class="lang-link">EN</a>
+      <a href="es.html" class="lang-link active">ES</a>
     </div>
   </div>
   
@@ -99,40 +99,40 @@
   <div id="window-steps" class="window-content">
     <h1>Etapas de Trabajo</h1>
 
-    <h3>1. Recepción y análisis inicial de la solicitud</h3>
-    <ul>
+    <h2>1. Recepción y análisis inicial de la solicitud</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Procesamiento de la solicitud entrante del cliente</li>
       <li>Formación de una comprensión inicial de la tarea, problema o idea</li>
     </ul>
 
-    <h3>2. Recopilación y análisis de datos iniciales</h3>
-    <ul>
+    <h2>2. Recopilación y análisis de datos iniciales</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Interacción con el cliente y/o sus representantes autorizados</li>
       <li>Obtención y análisis de la documentación técnica y de proyecto existente</li>
     </ul>
 
-    <h3>3. Auditoría integral (gratuita)</h3>
-    <ul>
+    <h2>3. Auditoría integral (gratuita)</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Evaluación de la viabilidad técnica de la implementación</li>
       <li>Análisis de la viabilidad económica</li>
       <li>Cálculo de los plazos estimados de recuperación de la inversión</li>
     </ul>
 
-    <h3>4. Diseño y aprobación de la solución</h3>
-    <ul>
+    <h2>4. Diseño y aprobación de la solución</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Preparación de especificaciones técnicas</li>
       <li>Desarrollo de un anteproyecto con cronograma de trabajo y especificaciones</li>
       <li>Aprobación de la versión final de la solución técnica con el cliente</li>
     </ul>
 
-    <h3>5. Implementación y puesta en marcha</h3>
-    <ul>
+    <h2>5. Implementación y puesta en marcha</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Ejecución del proyecto, configuración de sistemas, realización de pruebas</li>
       <li>Entrega de un conjunto completo de documentación técnica y operativa</li>
     </ul>
 
-    <h3>6. Soporte post-proyecto</h3>
-    <ul>
+    <h2>6. Soporte post-proyecto</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Asistencia durante el período de garantía</li>
       <li>Asistencia después del período de garantía</li>
     </ul>
@@ -141,44 +141,44 @@
   <!-- ТЕЛЕМЕХАНИКА -->
   <div id="window-telemech" class="window-content">
     <h1>Telemetría</h1>
-    <h3>1. Trabajo con sistemas existentes</h3>
-    <ul>
+    <h2>1. Trabajo con sistemas existentes</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Diagnóstico</li>
       <li>Reparación</li>
       <li>Modernización</li>
       <li>Optimización</li>
     </ul>
-    <h3>2. Construcción de un nuevo sistema</h3>
-    <ul>
+    <h2>2. Construcción de un nuevo sistema</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Selección de SCADA, equipos, plataformas en la nube</li>
       <li>Instalación, montaje y puesta en marcha de equipos tanto locales como de campo</li>
       <li>Implementación de la lógica básica de control</li>
       <li>Configuración de alertas, archivo de datos, tendencias</li>
       <li>Configuración de acceso remoto</li>
     </ul>
-    <h3>Protocolos compatibles</h3>
+    <h2>Protocolos compatibles</h2>
     <p>Modbus, IEC 60870-5-104, DNP3, OPC, MQTT y otros.</p>
   </div>
 
   <!-- СЕТИ -->
   <div id="window-networks" class="window-content">
     <h1>Redes</h1>
-    <h3>Trabajos con infraestructuras de red</h3>
-    <ul>
+    <h2>Trabajos con infraestructuras de red</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Reparación después de daños</li>
       <li>Modernización de redes existentes</li>
       <li>Diseño e implementación de nuevas redes</li>
       <li>Configuración de equipos de conmutación</li>
     </ul>
-    <h3>Tipos de medios compatibles</h3>
-    <ul>
+    <h2>Tipos de medios compatibles</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Líneas de cobre (pares telefónicos)</li>
       <li>Cable coaxial, Ethernet (par trenzado), fibra óptica</li>
       <li>Redes inalámbricas (antenas, equipos de radioenlace)</li>
       <li>Canales de radio de alta frecuencia (LOS) en condiciones de visibilidad directa y de baja frecuencia (NLOS) sin visibilidad directa</li>
     </ul>
-    <h3>Servicios adicionales</h3>
-    <ul>
+    <h2>Servicios adicionales</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Provisión de Internet</li>
     </ul>
   </div>
@@ -187,22 +187,22 @@
   <div id="window-video" class="window-content">
     <h1>Videovigilancia</h1>
     
-    <h3>Trabajo con sistemas existentes</h3>
-    <ul><li>Diagnóstico</li><li>Reparación</li><li>Modernización</li><li>Optimización</li></ul>
+    <h2>Trabajo con sistemas existentes</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;"><li>Diagnóstico</li><li>Reparación</li><li>Modernización</li><li>Optimización</li></ul>
     
-    <h3>Construcción de un nuevo sistema</h3>
-    <ul><li>Selección de equipos, plataformas en la nube</li><li>Selección de cámaras</li><li>Instalación, puesta en marcha</li><li>Configuración de acceso remoto</li></ul>
+    <h2>Construcción de un nuevo sistema</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;"><li>Selección de equipos, plataformas en la nube</li><li>Selección de cámaras</li><li>Instalación, puesta en marcha</li><li>Configuración de acceso remoto</li></ul>
     
-    <h3>Verificación de alarmas por video — monitoreo con operador en vivo</h3>
-    <ul>
+    <h2>Verificación de alarmas por video — monitoreo con operador en vivo</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Cuando se detecta movimiento u otras alertas críticas fuera del horario laboral (after hours), nuestro operador revisa el evento en tiempo real</li>
       <li>Analiza el archivo de video y confirma o rechaza la alarma</li>
       <li>Si es una falsa alarma, el sistema se reinicia, no se llama a la policía</li>
       <li>Si se confirma una intrusión, el operador notifica inmediatamente a los servicios de emergencia con la ubicación exacta y la descripción del incidente</li>
     </ul>
     
-    <h3>Ventajas de la verificación por video</h3>
-    <ul>
+    <h2>Ventajas de la verificación por video</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Sin multas por falsas llamadas a la policía (ahorro de hasta $500 por incidente)</li>
       <li>Respuesta rápida a amenazas reales</li>
       <li>Control 24/7</li>
@@ -210,8 +210,8 @@
       <li>Cumplimiento del estándar de verificación de alarmas por video (AVL-01)</li>
     </ul>
 
-    <h3>Servicios adicionales</h3>
-    <ul>
+    <h2>Servicios adicionales</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Nos hacemos cargo del mantenimiento completo del sistema de videovigilancia — programado y de emergencia</li>
       <li>A solicitud (cuando sea necesaria una investigación del incidente) — proporcionamos rápidamente la grabación requerida del archivo con marca de tiempo y exportación en el formato requerido</li>
     </ul>
@@ -221,30 +221,30 @@
   <div id="window-robotics" class="window-content">
     <h1>Robótica</h1>
 
-    <h3>1. Calibración y preparación para el transporte</h3>
-    <ul>
+    <h2>1. Calibración y preparación para el transporte</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Preparación del robot para el transporte (fijación de ejes, protección de componentes)</li>
       <li>Transporte cumpliendo con los requisitos del fabricante</li>
       <li>Instalación en nueva ubicación y recalibración después del transporte</li>
     </ul>
 
-    <h3>2. Recuperación después de situaciones de emergencia</h3>
-    <ul>
+    <h2>2. Recuperación después de situaciones de emergencia</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Desbloqueo del robot</li>
       <li>Recalibración después de colisiones y daños mecánicos</li>
       <li>Verificación del funcionamiento de todos los ejes y sensores</li>
     </ul>
 
-    <h3>3. Programación e integración</h3>
-    <ul>
+    <h2>3. Programación e integración</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Desarrollo de un programa «desde cero» para su tarea específica</li>
       <li>Modificación de programas existentes — optimización, adición de funciones</li>
       <li>Integración del robot con el PLC adicional de su sistema</li>
       <li>Integración con el sistema SCADA para control y monitoreo centralizados</li>
     </ul>
 
-    <h3>4. Servicio y soporte</h3>
-    <ul>
+    <h2>4. Servicio y soporte</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Organización de la comunicación con el fabricante para reparaciones en garantía y post-garantía</li>
       <li>Consultoría sobre operación y mantenimiento</li>
       <li>Visita de emergencia de un especialista (bajo pedido)</li>
@@ -255,16 +255,16 @@
   <div id="window-pilot" class="window-content">
     <h1>Proyecto Piloto</h1>
 
-    <h3>Nuestra empresa está interesada en formar una lista de referencias de calidad de proyectos implementados en el segmento de pequeñas empresas</h3>
-    <h3>Condiciones del proyecto piloto</h3>
-    <ul>
+    <h2>Nuestra empresa está interesada en formar una lista de referencias de calidad de proyectos implementados en el segmento de pequeñas empresas</h2>
+    <h2>Condiciones del proyecto piloto</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Consentimiento del cliente para utilizar el proyecto completado con fines publicitarios y de marketing</li>
       <li>Implementación del proyecto piloto al costo del equipo (la mano de obra es gratuita)</li>
       <li>El costo se limita a los gastos directos de adquisición del equipo</li>
     </ul>
 
-    <h3>Cómo presentar una solicitud</h3>
-    <ul>
+    <h2>Cómo presentar una solicitud</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Envíe su propuesta a través del siguiente formulario</li>
       <li>Nos pondremos en contacto con usted para discutir los detalles</li>
     </ul>
@@ -276,19 +276,19 @@
   <div id="window-career" class="window-content">
     <h1>Carrera</h1>
 
-    <h3>Programador SCADA (Ignition)</h3>
-    <ul>
+    <h2>Programador SCADA (Ignition)</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Experiencia con SCADA Ignition</li>
     </ul>
 
-    <h3>Instalador de equipos de radioenlace</h3>
-    <ul>
+    <h2>Instalador de equipos de radioenlace</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Trabajo en el equipo de ingenieros de campo</li>
       <li>Licencia vigente (autorización) para trabajos en altura</li>
     </ul>
 
-    <h3>Ingeniero de diseño (control de normas)</h3>
-    <ul>
+    <h2>Ingeniero de diseño (control de normas)</h2>
+    <ul style="margin-left: 24px; margin-bottom: 20px;">
       <li>Preparación final de la documentación del proyecto</li>
       <li>Experiencia con AutoCAD, CorelDRAW</li>
     </ul>
@@ -350,6 +350,23 @@
 <!-- SCRIPT: ФОРМЫ И ПЕРЕКЛЮЧЕНИЕ ОКОН        -->
 <!-- ======================================== -->
 <script>
+  // Тройной клик на логотип — переход на русскую версию
+  let logoClickCount = 0;
+  let logoClickTimer = null;
+  function handleLogoClick() {
+    logoClickCount++;
+    clearTimeout(logoClickTimer);
+    if (logoClickCount === 3) {
+      logoClickCount = 0;
+      window.location.href = 'ru.html';
+      return;
+    }
+    logoClickTimer = setTimeout(() => {
+      logoClickCount = 0;
+      showWindow('home');
+    }, 500);
+  }
+
   // Функция создания формы (с поддержкой файлов)
   function createForm(actionUrl, formType = 'default', maxSizeMB = 10) {
     const form = document.createElement('form');
@@ -426,7 +443,7 @@
   const windows = document.querySelectorAll('.window-content');
   const navLinks = document.querySelectorAll('.nav-link');
 
- window.showWindow = function(windowId) {
+  window.showWindow = function(windowId) {
   windows.forEach(win => win.classList.remove('active'));
   const target = document.getElementById(`window-${windowId}`);
   if (target) target.classList.add('active');
