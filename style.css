@@ -92,7 +92,7 @@ main {
   background: var(--ecs-light);
   border: 1px solid var(--ecs-border);
   border-radius: 14px;
-  padding: 16px 10px 12px;
+  padding: 16px;
   text-align: center;
   cursor: pointer;
   transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
@@ -108,14 +108,20 @@ main {
 }
 
 .wwd-card:hover .wwd-icon svg {
-  transform: scale(1.12);
+  transform: scale(1.08);
 }
 
 .wwd-icon {
-  width: 40px;
-  height: 40px;
-  margin: 0 auto 8px;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 12px;
   transition: transform 0.2s;
+}
+
+.wwd-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .wwd-icon svg {
